@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 const cdk = require('@aws-cdk/core');
-const { DeployStack } = require('../lib/deploy-stack');
+const { EkkoStack } = require('../lib/deploy-stack');
 
 const app = new cdk.App();
-new DeployStack(app, 'DeployStack', {
+new EkkoStack(app, 'DeployStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */

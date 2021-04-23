@@ -5,7 +5,7 @@ const Deploy = require('../lib/deploy-stack');
 test('Empty Stack', () => {
     const app = new cdk.App();
     // WHEN
-    const stack = new Deploy.DeployStack(app, 'MyTestStack');
+    const stack = new Deploy.EkkoStack(app, 'MyTestStack');
     // THEN
     expect(stack).to(matchTemplate({
       "Resources": {}
