@@ -3,24 +3,18 @@
 const cdk = require('@aws-cdk/core');
 const { EkkoStack, SharedResources } = require('../lib/deploy-stack');
 
-const app = new cdk.App();
+// A construct which represents the entire CDK app
+class EkkoApp extends cdk.App {
+  constructor() {
+    super();
 
-const sharedResources = new SharedResources(app, "shared-resources");
-const ekkoStack = new EkkoStack(app, 'EkkoStack', {
-  /* If you don't specify 'env', this stack will be environment-agnostic.
-   * Account/Region-dependent features and context lookups will not work,
-   * but a single synthesized template can be deployed anywhere. */
+    const sharedResources = new SharedResources(this, "shared-resources");
 
-  /* Uncomment the next line to specialize this stack for the AWS Account
-   * and Region that are implied by the current CLI configuration. */
-  // env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+    const server = new EkkoStack(this, "ekko-server", {
+      cluster: sharedResources.cluster,
+      redis: sharedResources.redis,
+    });
+  }
+}
 
-  /* Uncomment the next line if you know exactly what Account and Region you
-   * want to deploy the stack to. */
-  // env: { account: '123456789012', region: 'us-east-1' },
-
-  /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-  cluster: sharedResources.cluster,
-  redis: sharedResources.redis,
-});
-
+new EkkoApp().synth();
