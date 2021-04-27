@@ -14,6 +14,7 @@ class EkkoApp extends cdk.App {
       cluster: sharedResources.cluster,
       redis: sharedResources.redis,
       vpc: sharedResources.vpc,
+      s3: sharedResources.s3,
     });
   }
 }
