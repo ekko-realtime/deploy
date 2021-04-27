@@ -13,6 +13,7 @@ class EkkoApp extends cdk.App {
     const server = new EkkoStack(this, "ekko-server", {
       cluster: sharedResources.cluster,
       redis: sharedResources.redis,
+      vpc: sharedResources.vpc,
     });
   }
 }
