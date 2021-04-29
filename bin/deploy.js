@@ -2,6 +2,7 @@
 
 const cdk = require('@aws-cdk/core');
 const { EkkoStack, SharedResources } = require('../lib/deploy-stack');
+const { Tags } = require('@aws-cdk/core');
 
 // A construct which represents the entire CDK app
 class EkkoApp extends cdk.App {
@@ -16,7 +17,10 @@ class EkkoApp extends cdk.App {
       vpc: sharedResources.vpc,
       s3: sharedResources.s3,
     });
+
+    Tags.of(sharedResources).add("service", "ekko");
+    Tags.of(server).add("service", "ekko");
   }
 }
 
-new EkkoApp().synth();
+const app = new EkkoApp().synth();
