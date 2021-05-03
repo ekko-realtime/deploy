@@ -23,5 +23,24 @@
     "@aws-cdk/aws-s3": "^1.100.0",
     "@aws-cdk/core": "^1.100.0",
     "crypto": "^1.0.1"
-  }
+  },
+  "author": "ekko",
+  "contributors": [
+    {
+      "name": "Alex Strick van Linschoten",
+      "github": "<https://github.com/strickvl>"
+    },
+    {
+      "name": "Dorey Miller",
+      "github": "<https://github.com/doreymiller>"
+    },
+    {
+      "name": "Drew Holbrook",
+      "github": "<https://github.com/dpholbrook>"
+    },
+    {
+      "name": "Will Lotherington",
+      "github": "<https://github.com/wLotherington>"
+    }
+  ],
 }
