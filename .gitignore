@@ -6,3 +6,7 @@ cdk.out
 
 # outputs file
 cdk-outputs.json
+
+# node tap testing files
+.nyc_output
+coverage

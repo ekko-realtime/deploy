@@ -1,59 +1,17 @@
-const { expect, haveResource, SynthUtils } = require('@aws-cdk/assert');
+const assert = require('@aws-cdk/assert');
+const expectCDK = assert.expect;
+const haveResource = assert.haveResource;
+
 const cdk = require('@aws-cdk/core');
+const Deploy = require('../lib/deploy-stack');
 const tap = require('tap');
 
-const { EkkoStack, SharedResources } = require('../lib/deploy-stack');
-
-import { Stack } from '@aws-cdk/core';
-
-const EkkoCDK = require'../lib/deploy-stack';
-
-tap.test('stack creates an alarm', () => {
-  const stack = new Stack();
-  new EkkoCDK.SharedResources(stack, 'shared-resources');
-  tap.equal(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+tap.test('Test resource presence', async subTest => {
+  const app = new cdk.App();
+  // WHEN
+  const stack = await new Deploy.SharedResources(app, 'MyTestStack');
+  // THEN
+  expectCDK(stack).to(haveResource("AWS::S3::Bucket",{}));
+  expectCDK(stack).to(haveResource("AWS::EC2::VPC",{}));
+  expectCDK(stack).to(haveResource("AWS::ECS::Cluster",{}));
 });
-
-// // tap.test('S3 bucket created', test => {
-// //   const app = new cdk.App();
-// //   const stack = new cdk.Stack(app);
-// //   new SharedResources(stack, 'SharedResources', {});
-
-
-// //   // assert.expect(stack).toHaveResource("AWS::S3::Bucket");
-
-
-// // })
-
-
-// tap.test("Test Stack", () => {
-//   const app = new cdk.App();
-//   const stack = new SharedResources(app, "test-shared-resources-stack");
-
-//   expect(stack).to(
-//     haveResource("AWS::S3::Bucket", {})
-//   );
-//   tap.done();
-// });
-
-// // // make sure our stack resources exist
-// // expect(stack).to(haveResource('AWS::CertificateManager::Certificate', {
-// //   DomainName: 'test.example.com',
-// //   // Note: some properties omitted here
-
-// //   ShouldNotExist: ABSENT
-// // }));
-
-
-// // // check the existence of outputs
-
-// // expect(synthStack).to(haveOutput({
-// //   outputName: 'TestOutputName',
-// //   exportName: 'TestOutputExportName',
-// //   outputValue: {
-// //     'Fn::GetAtt': [
-// //       'TestResource',
-// //       'Arn'
-// //     ]
-// //   }
-// // }));
