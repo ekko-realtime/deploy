@@ -17,8 +17,8 @@ WARNING: the [Ekko CLI tool](https://github.com/ekko-live/cli) is the best way t
 - `cd` into the folder and run `npm install` to install all dependencies
 - run `cdk bootstrap` — this will initialise some AWS infrastructure to allow you to deploy using `cdk`. (If you have already run this command for the AWS region you're deploying to, it will return an error that you can safely ignore.)
 - run `cdk deploy "*" --outputs-file cdk-outputs.json` to deploy all the ekko server infrastructure on AWS.
-	- the `aws-cdk` CLI tool will confirm that you want to deploy infrastructure, and it will do so for each of the two stacks this code deploys
-	- all relevant variables and endpoints will be printed to the terminal at the end of deployment, and those variables are also stored in a `cdk-outputs.json` file that was generated during the deployment process.
+    - the `aws-cdk` CLI tool will confirm that you want to deploy infrastructure, and it will do so for each of the two stacks this code deploys
+    - all relevant variables and endpoints will be printed to the terminal at the end of deployment, and those variables are also stored in a `cdk-outputs.json` file that was generated during the deployment process.
 
 ## Useful Commands
 
@@ -49,3 +49,9 @@ This command deploys both stacks *without* asking you for confirmation as to whe
 - `npm run test`
 
 This command performs and runs unit tests for the repository.
+
+## Testing
+
+This repository contains some unit tests for the CDK code, found in the `/tests` directory.
+
+You can run these tests from the root of the repository with [Node Tap](https://node-tap.org/) by using the command `npm test`.
