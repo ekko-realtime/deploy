@@ -1,18 +1,18 @@
 {
   "name": "ekko-deploy",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "bin": {
     "deploy": "bin/deploy.js"
   },
   "scripts": {
     "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
     "cdk": "cdk",
-    "test": "jest"
+    "test": "tap"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.100.0",
+    "@aws-cdk/assert": "^1.100.0",
     "aws-cdk": "1.100.0",
-    "jest": "^26.4.2"
+    "tap": "^15.0.6"
   },
   "dependencies": {
     "@aws-cdk/aws-cloudwatch": "^1.100.0",
