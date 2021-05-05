@@ -1,8 +1,8 @@
 # Ekko Infrastructure Deployment
 
-This repository contains files that are used to deploy ekko's server infrastructure to AWS. What follows is an explanation for how to interact with the CDK deployment code contained within this repository, though we recommend you use the [Ekko CLI tool](https://github.com/ekko-live/cli) as the primary means of deploying infrastructure.
+This repository contains files that are used to deploy ekko's server infrastructure to AWS. What follows is an explanation for how to interact with the CDK deployment code contained within this repository, though we recommend you use the [Ekko CLI tool](https://github.com/ekko-realtime/cli) as the primary means of deploying infrastructure.
 
-WARNING: the [Ekko CLI tool](https://github.com/ekko-live/cli) is the best way to work with deploying and setting up your ekko infrastructure. (The 'deploy' repository is used implicitly by the Ekko CLI, and the recommended way of deploying your server infrastructure is through the `ekko init` command).
+WARNING: the [Ekko CLI tool](https://github.com/ekko-realtime/cli) is the best way to work with deploying and setting up your ekko infrastructure. (The 'deploy' repository is used implicitly by the Ekko CLI, and the recommended way of deploying your server infrastructure is through the `ekko init` command).
 
 ## Prerequisites
 
