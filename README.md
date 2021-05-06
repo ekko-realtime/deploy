@@ -1,8 +1,8 @@
 # Ekko Infrastructure Deployment
 
-This repository contains files that are used to deploy ekko's server infrastructure to AWS. What follows is an explanation for how to interact with the CDK deployment code contained within this repository, though we recommend you use the [Ekko CLI tool](https://github.com/ekko-realtime/cli) as the primary means of deploying infrastructure.
+This repository contains files that are used to deploy Ekko's server infrastructure to AWS. What follows is an explanation for how to interact with the CDK deployment code contained within this repository, though we recommend you use the [Ekko CLI tool](https://github.com/ekko-realtime/cli) as the primary means of deploying infrastructure.
 
-WARNING: the [Ekko CLI tool](https://github.com/ekko-realtime/cli) is the best way to work with deploying and setting up your ekko infrastructure. (The 'deploy' repository is used implicitly by the Ekko CLI, and the recommended way of deploying your server infrastructure is through the `ekko init` command).
+WARNING: the [Ekko CLI tool](https://github.com/ekko-realtime/cli) is the best way to work with deploying and setting up your Ekko infrastructure. (The 'deploy' repository is used implicitly by the Ekko CLI, and the recommended way of deploying your server infrastructure is through the `ekko init` command).
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ WARNING: the [Ekko CLI tool](https://github.com/ekko-realtime/cli) is the best w
 - clone this repository to your local machine using `git clone`
 - `cd` into the folder and run `npm install` to install all dependencies
 - run `cdk bootstrap` — this will initialise some AWS infrastructure to allow you to deploy using `cdk`. (If you have already run this command for the AWS region you're deploying to, it will return an error that you can safely ignore.)
-- run `cdk deploy "*" --outputs-file cdk-outputs.json` to deploy all the ekko server infrastructure on AWS.
+- run `cdk deploy "*" --outputs-file cdk-outputs.json` to deploy all the Ekko server infrastructure on AWS.
     - the `aws-cdk` CLI tool will confirm that you want to deploy infrastructure, and it will do so for each of the two stacks this code deploys
     - all relevant variables and endpoints will be printed to the terminal at the end of deployment, and those variables are also stored in a `cdk-outputs.json` file that was generated during the deployment process.
 
